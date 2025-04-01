@@ -92,8 +92,21 @@ main {
 }
 
 /*Footer*/
-footer {
-    background-color: orange;
+#social-networks {
+    text-align: center;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-evenly; /* Use center if you're controlling spacing with li margins */
+    list-style-type: none;
+}
+#social-networks i {
+    font-size: 160%;
+    padding: 0 15px;
+    color: #3a3a3a;
+}
+#social-networks li {
+    flex-grow: 1; /* Allow list items to grow and take up equal space */
+    text-align: center; /* Center the icon within each list item */
 }
 
 /*Media query: tablets and larger (768px and up)*/
