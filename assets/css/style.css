@@ -1,24 +1,31 @@
 /* Google fonts import */
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Oswald:wght@200;300;400;500;600;700&display=swap');
 
-/*Asterisk wildcard selector to override default styles added by the browser*/
+/* Asterisk wildcard selector to override default styles added by the browser */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-/*General styles*/
+/* General styles */
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    /* Generic project styles*/
+    /* Generic project styles */
     color: #3a3a3a;
     font-family: 'Lato', sans-serif;
 }
 
-/*Header*/
+h1, h2, h3 {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #252525;
+}
+
+/* Header */
 header {
     background-color: #ffffff;
     padding: 0 1rem;
@@ -36,20 +43,13 @@ header a {
     color: inherit;
 }
 
-h1 {
-    font-family: 'Oswald', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #252525;
-}
-
 #menu {
     font-size: 110%;
     letter-spacing: 4px;
     list-style-type: none;
 }
 
-#menu li {
+#menu > li {
     margin-bottom: 1em;
 }
 
@@ -57,7 +57,7 @@ h1 {
     border-bottom: 1px solid #3a3a3a;
 }
 
-/*Navbar styles with dropdoown togge*/
+/* Navbar styles with dropdown toggle */
 nav {
     position: absolute;
     background-color: #ffffff;
@@ -69,54 +69,72 @@ nav {
     top: 100%;
 }
 
-/*Nav toggie*/
+/* Nav toggle */
 #nav-toggle:checked~nav {
     display: block;
 }
 
 #nav-toggle {
-    display: block;
-    position: absolute;
+    display: none;
 }
 
 .nav-toggle-label {
     font-size: 2rem;
 }
 
-/*Main content*/
+/* Main content */
 main {
-    background-color: lightblue;
-    /*Make main element take up any surplus space to push footer down*/
+    /* Make main element take up any surplus space to push footer down */
     flex: 1 0 auto;
     margin-top: 47px;
 }
 
-/*Footer*/
+/* Hero section */
+#hero {
+    height: 600px;
+    width: 100%;
+    background: url("../images/hero-image.webp") no-repeat center center/cover;
+    position: relative;
+}
+
+#cover-text {
+    /* Final rgba value sets the opacity so it is semi-transparent */
+    background-color: rgba(241, 109, 107, .7);
+    font-size: 130%;
+    position: absolute;
+    bottom: 30px;
+    width: 80%;
+    min-height: 200px;
+    padding-top: 40px;
+    padding-left: 10px;
+}
+
+#cover-text > h2, #cover-text > h3 {
+    color: #ffffff;
+}
+
+/* Footer */
 #social-networks {
     text-align: center;
     padding: 20px 0;
     display: flex;
-    justify-content: space-evenly; /* Use center if you're controlling spacing with li margins */
+    justify-content: space-evenly;
     list-style-type: none;
 }
+
 #social-networks i {
     font-size: 160%;
-    padding: 0 15px;
+    padding: 5%;
     color: #3a3a3a;
 }
-#social-networks li {
-    flex-grow: 1; /* Allow list items to grow and take up equal space */
-    text-align: center; /* Center the icon within each list item */
-}
 
-/*Media query: tablets and larger (768px and up)*/
+/* Media query: tablets and larger (768px and up) */
 @media screen and (min-width: 768px) {
-
-    /*Header*/
+    /* Header */
     nav {
         display: block;
         position: relative;
-        box-shadow: non;
+        box-shadow: none;
         width: fit-content;
         padding-right: 1rem;
     }
@@ -125,27 +143,36 @@ main {
         display: flex;
     }
 
-    #menu>li {
+    #menu > li {
         padding-left: 1rem;
     }
 
     .nav-toggle-label {
         display: none;
     }
+
     #logo {
         font-size: 280%;
         line-height: 75px;
         margin: 0 0.5rem;
     }
-    /*Main content*/
+
+    /* Main content */
     main {
-        /*Push content down to accomodate larger eader*/
+        /* Push main content down to accommodate larger header */
         margin-top: 79px;
     }
-    /* Large devices (laptops and desktops, 992px and up)*/
-    @media screen and (min-width: 992px) {
-        #menu a:hover{
-            border-bottom: 1px solid #3a3a3a;
-        }
+
+    /* Hero image */
+    #cover-text {
+        width: 300px;
+        right: 50px;
+    }
+}
+
+/* Large devices (laptops and desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+    #menu a:hover{
+        border-bottom: 1px solid #3a3a3a;
     }
 }
